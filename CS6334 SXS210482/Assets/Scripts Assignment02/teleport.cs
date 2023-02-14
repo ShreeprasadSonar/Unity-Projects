@@ -17,7 +17,7 @@ public class teleport : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        if (hasPointerEntered && Input.GetKey("joystick button 0"))
+        if (hasPointerEntered && (Input.GetKey("joystick button 0") || Input.GetKey("joystick button 3")))
         {
             player.SetActive(false);
             player.transform.position = teleportTarget.transform.position;

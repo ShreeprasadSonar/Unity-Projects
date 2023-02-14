@@ -15,7 +15,7 @@ public class rotate : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // Update is called once per frame
     void Update()
     {
-        if (hasPointerEntered && Input.GetKey("joystick button 1"))
+        if (hasPointerEntered && (Input.GetKey("joystick button 1") || Input.GetKey("joystick button 2")))
         {
                 transform.Rotate(0.3f,0,0);
         }

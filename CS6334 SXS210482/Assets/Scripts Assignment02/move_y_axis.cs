@@ -15,7 +15,7 @@ public class move_y_axis : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Update is called once per frame
     void Update()
     {
-        if (hasPointerEntered && Input.GetKey("joystick button 1"))
+        if (hasPointerEntered && (Input.GetKey("joystick button 1") || Input.GetKey("joystick button 2")))
         {
                 transform.Translate(0,0.005f,0);
         }
