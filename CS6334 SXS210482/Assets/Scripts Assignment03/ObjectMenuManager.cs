@@ -5,10 +5,17 @@ using UnityEngine;
 public class ObjectMenuManager : MonoBehaviour
 {
     public GameObject controlMenu;
+    public GameObject mainCamera;
+    public GameObject PickupObject;
+    private GameObject player;
+    public GameObject XRCardboardRig;
+    public GameObject VRGroup;
+    public GameObject EventSystem;
+    public GameObject inventory;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -17,24 +24,31 @@ public class ObjectMenuManager : MonoBehaviour
 
     }
 
-    public void OpenMenu()
+    public void OpenMenu(GameObject receivedMenu)
     {
+        controlMenu = receivedMenu;
         controlMenu.SetActive(true);
+        player.GetComponent<CharacterMovement>().enabled = false;
     }
 
     public void CloseMenu()
     {
+        print("Close Menu");
         controlMenu.SetActive(false);
+        player.GetComponent<CharacterMovement>().enabled = true;
+        
     }
 
     public void Grab()
     {
-        print("Grab");
+        controlMenu.SetActive(false);
+        mainCamera.GetComponent<GrabObject>().PickupObject(this.PickupObject);
     }
 
     public void Store()
     {
-        print("Store");
+        controlMenu.SetActive(false);
+        PickupObject.GetComponent<ItemPickup>().Pickup();
     }
 
 }

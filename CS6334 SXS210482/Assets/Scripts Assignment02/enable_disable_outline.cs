@@ -5,19 +5,13 @@ using UnityEngine.EventSystems;
 
 public class enable_disable_outline : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Outline outline;
+    private Outline outline;
     // Start is called before the first frame update
     void Start()
     {
         outline = GetComponent<Outline>();
-        outline.enabled = false;
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
