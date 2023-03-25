@@ -20,11 +20,6 @@ public class ObjectMenuManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
-    {  
-
-    }
 
     public void OpenMenu(GameObject receivedMenu)
     {
@@ -35,20 +30,26 @@ public class ObjectMenuManager : MonoBehaviour
 
     public void CloseMenu()
     {
-        print("Close Menu");
-        controlMenu.SetActive(false);
         player.GetComponent<CharacterMovement>().enabled = true;
+        PickupObject.SetActive(false);
+        controlMenu.SetActive(false);
+        PickupObject.SetActive(true);
+        
         
     }
     public void Grab()
     {
-        controlMenu.gameObject.SetActive(false);
+        PickupObject.SetActive(false);
+        controlMenu.SetActive(false);
+        PickupObject.SetActive(true);
         mainCamera.GetComponent<GrabObject>().PickupObject(this.PickupObject);
     }
 
     public void Store()
     {
-        controlMenu.gameObject.SetActive(false);
+        PickupObject.SetActive(false);
+        controlMenu.SetActive(false);
+        PickupObject.SetActive(true);
         PickupObject.GetComponent<ItemPickup>().Pickup(this.PickupObject);
     }
 

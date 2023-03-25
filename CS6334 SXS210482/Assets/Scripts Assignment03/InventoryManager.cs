@@ -15,8 +15,20 @@ public class InventoryManager : MonoBehaviour
     public TMP_Text itemText;
     public List<GameObject> objects = new List<GameObject>();
     public GameObject mainCamera;
+    public GameObject character;
 
     public InventoryItemController[] InventoryItems;
+    private Button firstMenuItem;
+
+    private void Start()
+    {
+        // Find the first selectable item in the menu
+        
+    }
+
+    private void Update() {
+        ItemContent.GetComponentInChildren<Button>()?.Select();
+    }
 
     private void Awake()
     {
@@ -52,14 +64,22 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void ListItems(){
+        int i = 0;
         foreach (var item in items)
         {
+            i+=1;
             GameObject obj = Instantiate(InventoryItem, ItemContent);
             var itemName = obj.transform.Find("ItemName")?.GetComponent<TextMeshProUGUI>();
             var itemImage = obj.transform.Find("ItemImage")?.GetComponent<Image>();
 
             itemName.text = item.itemName;
             itemImage.sprite = item.itemImage;
+        }
+
+        if(i == 0){
+            print("No Items");
+            InventoryPanel.SetActive(false);
+            character.GetComponent<SettingsMenuManager>().CloseMenu();
         }
 
         SetInventoryItems();

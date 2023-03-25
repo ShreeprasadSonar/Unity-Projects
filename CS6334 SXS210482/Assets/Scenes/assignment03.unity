@@ -6773,6 +6773,10 @@ PrefabInstance:
       value: InventoryManager
       objectReference: {fileID: 0}
     - target: {fileID: 5375731312478065077, guid: 847bde62da3fa4c4b836ff4b360774b2, type: 3}
+      propertyPath: character
+      value: 
+      objectReference: {fileID: 1518053107}
+    - target: {fileID: 5375731312478065077, guid: 847bde62da3fa4c4b836ff4b360774b2, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 171269351}
@@ -6780,6 +6784,10 @@ PrefabInstance:
       propertyPath: ItemContent
       value: 
       objectReference: {fileID: 1857634429}
+    - target: {fileID: 5375731312478065077, guid: 847bde62da3fa4c4b836ff4b360774b2, type: 3}
+      propertyPath: settingsMenu
+      value: 
+      objectReference: {fileID: 1522689214}
     - target: {fileID: 5375731312478065077, guid: 847bde62da3fa4c4b836ff4b360774b2, type: 3}
       propertyPath: InventoryItem
       value: 

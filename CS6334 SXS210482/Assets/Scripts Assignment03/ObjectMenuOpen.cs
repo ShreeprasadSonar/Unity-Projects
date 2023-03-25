@@ -12,9 +12,16 @@ public class ObjectMenuOpen : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void Update()
     {
         if(this.pointed && Input.GetKeyDown("joystick button 1")){
-            ObjectMenu.GetComponent<ObjectMenuManager>().Start();
-            ObjectMenu.GetComponent<ObjectMenuManager>().OpenMenu(ObjectMenu);
+            OpenMenu();
         }     
+    }
+
+    public void OpenMenu(){
+        ObjectMenu.SetActive(true);
+    }
+
+    public void CloseMenu(){
+        ObjectMenu.SetActive(false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
