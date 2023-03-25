@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ObjectMenuManager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ObjectMenuManager : MonoBehaviour
     public GameObject VRGroup;
     public GameObject EventSystem;
     public GameObject inventory;
+    
     // Start is called before the first frame update
     public void Start()
     {
@@ -20,7 +22,7 @@ public class ObjectMenuManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {  
 
     }
 
@@ -34,11 +36,10 @@ public class ObjectMenuManager : MonoBehaviour
     public void CloseMenu()
     {
         print("Close Menu");
-        controlMenu.gameObject.SetActive(false);
+        controlMenu.SetActive(false);
         player.GetComponent<CharacterMovement>().enabled = true;
         
     }
-
     public void Grab()
     {
         controlMenu.gameObject.SetActive(false);

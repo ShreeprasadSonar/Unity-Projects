@@ -154,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5178187191208900118
 RectTransform:
   m_ObjectHideFlags: 0
@@ -254,6 +254,10 @@ MonoBehaviour:
   controlMenu: {fileID: 5178187191208900113}
   mainCamera: {fileID: 0}
   PickupObject: {fileID: 0}
+  XRCardboardRig: {fileID: 0}
+  VRGroup: {fileID: 0}
+  EventSystem: {fileID: 0}
+  inventory: {fileID: 0}
 --- !u!1 &5178187191314061296
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   itemName: Sofa
-  itemImage: {fileID: 21300000, guid: 54fb8de8dd6ae6342accaa2776472553, type: 3}
+  itemImage: {fileID: 21300000, guid: 3e787e5009381bd4ea9ccc6a3ca00473, type: 3}
