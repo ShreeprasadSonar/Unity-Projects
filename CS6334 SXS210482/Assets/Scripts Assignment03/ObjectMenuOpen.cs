@@ -11,9 +11,14 @@ public class ObjectMenuOpen : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     // Update is called once per frame
     void Update()
     {
-        if(this.pointed && Input.GetKeyDown("joystick button 1")){
+        // PC Map
+        // if(this.pointed && Input.GetKeyDown("joystick button 1"))
+        // PC Map
+        if(this.pointed && Input.GetKeyDown("joystick button 2"))
+        {
             OpenMenu();
-        }     
+        }    
+        
     }
 
     public void OpenMenu(){

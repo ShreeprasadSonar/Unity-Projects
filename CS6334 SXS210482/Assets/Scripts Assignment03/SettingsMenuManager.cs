@@ -25,7 +25,11 @@ public class SettingsMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("joystick button 3")){
+        // PC Map
+        // if (Input.GetKeyDown("joystick button 3"))
+        // Mobile Map
+        if (Input.GetKeyDown("joystick button 0"))
+        {
             if (visible == false){
                 OpenMenu();              
             }
@@ -33,6 +37,17 @@ public class SettingsMenuManager : MonoBehaviour
                 CloseMenu();
             }
         }
+
+        // if (Input.GetKeyDown("joystick button 10")){
+        //     GameObject selected = EventSystem.current.currentSelectedGameObject;
+        //     if (selected != null) {
+        //         print(selected.name + " was selected.");
+        //         // perform action based on the selected object
+        //     }
+        //     else {
+        //         print("No object currently selected.");
+        //     }
+        // }
 
 
     }
@@ -48,6 +63,7 @@ public class SettingsMenuManager : MonoBehaviour
             EventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
         }
         VRGroup.SetActive(false);
+        settingsMenu.GetComponentInChildren<Button>()?.Select();
     }
 
     public void CloseMenu()

@@ -27,7 +27,6 @@ public class InventoryManager : MonoBehaviour
     }
 
     private void Update() {
-        ItemContent.GetComponentInChildren<Button>()?.Select();
     }
 
     private void Awake()
@@ -83,6 +82,7 @@ public class InventoryManager : MonoBehaviour
         }
 
         SetInventoryItems();
+        ItemContent.GetComponentInChildren<Button>()?.Select();
     }
 
     public void PlaceItem(Item item){

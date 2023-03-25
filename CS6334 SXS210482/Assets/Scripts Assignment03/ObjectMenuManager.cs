@@ -20,12 +20,11 @@ public class ObjectMenuManager : MonoBehaviour
         player = GameObject.FindWithTag("Player");
     }
 
-
     public void OpenMenu(GameObject receivedMenu)
     {
+        player.GetComponent<CharacterMovement>().enabled = false;
         controlMenu = receivedMenu;
         controlMenu.SetActive(true);
-        player.GetComponent<CharacterMovement>().enabled = false;
     }
 
     public void CloseMenu()
@@ -33,9 +32,7 @@ public class ObjectMenuManager : MonoBehaviour
         player.GetComponent<CharacterMovement>().enabled = true;
         PickupObject.SetActive(false);
         controlMenu.SetActive(false);
-        PickupObject.SetActive(true);
-        
-        
+        PickupObject.SetActive(true); 
     }
     public void Grab()
     {
