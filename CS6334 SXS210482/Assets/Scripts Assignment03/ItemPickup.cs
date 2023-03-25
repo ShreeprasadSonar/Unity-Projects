@@ -6,11 +6,14 @@ public class ItemPickup : MonoBehaviour
 {
     public Item item;
     public GameObject inventoryFullText;
+    
 
-    public void Pickup(){
+    public void Pickup(GameObject pickObj){
         print("In pickup");
         if (InventoryManager.instance.Add(item)){
-            Destroy(gameObject);
+            // print("Pick Object: " + pickObj.name);
+            InventoryManager.instance.objects.Add(pickObj);
+            gameObject.SetActive(false);
         } else {
             inventoryFullText.SetActive(true);
             StartCoroutine(DisableText());

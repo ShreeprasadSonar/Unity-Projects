@@ -34,21 +34,21 @@ public class ObjectMenuManager : MonoBehaviour
     public void CloseMenu()
     {
         print("Close Menu");
-        controlMenu.SetActive(false);
+        controlMenu.gameObject.SetActive(false);
         player.GetComponent<CharacterMovement>().enabled = true;
         
     }
 
     public void Grab()
     {
-        controlMenu.SetActive(false);
+        controlMenu.gameObject.SetActive(false);
         mainCamera.GetComponent<GrabObject>().PickupObject(this.PickupObject);
     }
 
     public void Store()
     {
-        controlMenu.SetActive(false);
-        PickupObject.GetComponent<ItemPickup>().Pickup();
+        controlMenu.gameObject.SetActive(false);
+        PickupObject.GetComponent<ItemPickup>().Pickup(this.PickupObject);
     }
 
 }

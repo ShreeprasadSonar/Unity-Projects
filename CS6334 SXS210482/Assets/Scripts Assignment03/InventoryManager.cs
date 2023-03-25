@@ -11,6 +11,12 @@ public class InventoryManager : MonoBehaviour
     public int space = 3;
     public Transform ItemContent;
     public GameObject InventoryItem;
+    public GameObject InventoryPanel;
+    public TMP_Text itemText;
+    public List<GameObject> objects = new List<GameObject>();
+    public GameObject mainCamera;
+
+    public InventoryItemController[] InventoryItems;
 
     private void Awake()
     {
@@ -36,7 +42,13 @@ public class InventoryManager : MonoBehaviour
 
     public void Remove(Item item)
     {
+        print("Removed : "+ item );
         items.Remove(item);
+        foreach(Transform itemC in ItemContent){
+            if(item.itemName.Equals(itemC.Find("ItemName").GetComponent<TMP_Text>().text)){
+                Destroy(itemC.gameObject);
+            }
+        }
     }
 
     public void ListItems(){
@@ -49,9 +61,28 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemImage.sprite = item.itemImage;
         }
+
+        SetInventoryItems();
     }
 
     public void PlaceItem(Item item){
-    
+        foreach (GameObject obj in objects){
+            if (obj.name.Equals(item.itemName)){
+                obj.SetActive(true);
+                mainCamera.GetComponent<GrabObject>().PickupObject(obj);
+            }
+            print("obj.name : "+ obj.name);
+        }
+        Remove(item);
+        InventoryPanel.SetActive(false);
+        // ;
+    }
+
+    public void SetInventoryItems(){
+        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+
+        for (int i=0; i< items.Count && i< (this.space); i++){
+            InventoryItems[i].AddItem(items[i]);
+        }
     }
 }
