@@ -13,7 +13,7 @@ public class ObjectMenuOpen : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         // PC Map
         // if(this.pointed && Input.GetKeyDown("joystick button 1"))
-        // PC Map
+        // Mobile Map
         if(this.pointed && Input.GetKeyDown("joystick button 2"))
         {
             OpenMenu();

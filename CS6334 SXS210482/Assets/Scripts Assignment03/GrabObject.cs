@@ -37,7 +37,7 @@ public class GrabObject : MonoBehaviour
     // PC Map
     // if(Input.GetKeyDown("joystick button 8") || Input.GetMouseButtonDown(0))
     // Mobile Map
-    if(Input.GetKeyDown("joystick button 10") || Input.GetMouseButtonDown(0))
+    if(Input.GetKeyDown("joystick button 10"))
     {
       if (heldObj != null)
       {
