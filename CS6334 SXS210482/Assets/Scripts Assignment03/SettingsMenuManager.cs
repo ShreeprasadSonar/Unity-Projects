@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
+
 public class SettingsMenuManager : MonoBehaviour
 {
     public GameObject settingsMenu;
@@ -11,10 +13,16 @@ public class SettingsMenuManager : MonoBehaviour
     public GameObject mainCamera;
     public GameObject XRCardboardRig;
     public GameObject VRGroup;
-    public GameObject EventSystem;
+    public GameObject EventSys;
     public GameObject inventory;
-    public GameObject speedButton;
+    public GameObject reticle;
+    public Selectable resumeButton;
+    public Selectable inventoryButton;
+    public Selectable speedButton;
+    public Selectable exitButton;
+    public GameObject speedText;
     public int speedCounter = 0;
+    // BaseEventData m_BaseEvent;
     // Start is called before the first frame update
     private bool visible = false;
     void Start()
@@ -38,8 +46,17 @@ public class SettingsMenuManager : MonoBehaviour
             }
         }
 
+        // if (visible == true && Input.GetKeyDown("joystick button 10"))
+        // Mobile Map
+        // if (Input.GetKeyDown("joystick button 5"))
+        {
+            // if(resumeButton EventSystem.current.currentSelectedGameObject == resumeButton.gameObject){
+            //     print("resumeButton is Highlighted");
+            // }
+        }
+
         // if (Input.GetKeyDown("joystick button 10")){
-        //     GameObject selected = EventSystem.current.currentSelectedGameObject;
+        //     GameObject selected = EventSys.current.currentSelectedGameObject;
         //     if (selected != null) {
         //         print(selected.name + " was selected.");
         //         // perform action based on the selected object
@@ -54,27 +71,28 @@ public class SettingsMenuManager : MonoBehaviour
 
     public void OpenMenu()
     {
-        settingsMenu.SetActive(true);
-        player.GetComponent<CharacterMovement>().enabled = false;
         visible = true;
-        XRCardboardRig.GetComponent<XRCardboardController>().enabled = false;
-        EventSystem.GetComponent<StandaloneInputModule>().enabled = true;
-        if(EventSystem.GetComponent<XRCardboardInputModule>().enabled != false){
-            EventSystem.GetComponent<XRCardboardInputModule>().enabled = false;
-        }
+        settingsMenu.SetActive(true);
         VRGroup.SetActive(false);
+        settingsMenu.GetComponentInChildren<Button>()?.Select();
+        player.GetComponent<CharacterMovement>().enabled = false;
+        XRCardboardRig.GetComponent<XRCardboardController>().enabled = false;
+        EventSys.GetComponent<StandaloneInputModule>().enabled = true;
+        if(EventSys.GetComponent<XRCardboardInputModule>().enabled != false){
+            EventSys.GetComponent<XRCardboardInputModule>().enabled = false;
+        }
         settingsMenu.GetComponentInChildren<Button>()?.Select();
     }
 
     public void CloseMenu()
     {
-        settingsMenu.SetActive(false);
-        player.GetComponent<CharacterMovement>().enabled = true;
         visible = false;
-        XRCardboardRig.GetComponent<XRCardboardController>().enabled = true;
-        EventSystem.GetComponent<StandaloneInputModule>().enabled = false;
-        EventSystem.GetComponent<XRCardboardInputModule>().enabled = true;
+        settingsMenu.SetActive(false);
         VRGroup.SetActive(true);
+        player.GetComponent<CharacterMovement>().enabled = true;
+        XRCardboardRig.GetComponent<XRCardboardController>().enabled = true;
+        EventSys.GetComponent<StandaloneInputModule>().enabled = false;
+        EventSys.GetComponent<XRCardboardInputModule>().enabled = true;
     }
 
     public void Inventory(){

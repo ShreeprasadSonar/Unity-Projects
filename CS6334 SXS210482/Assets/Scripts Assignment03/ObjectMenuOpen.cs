@@ -7,6 +7,13 @@ public class ObjectMenuOpen : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     public GameObject ObjectMenu;
     private bool pointed = false;
+    private GameObject player;
+
+    // Start is called before the first frame update
+    public void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
 
     // Update is called once per frame
     void Update()
@@ -16,6 +23,7 @@ public class ObjectMenuOpen : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         // Mobile Map
         if(this.pointed && Input.GetKeyDown("joystick button 2"))
         {
+            player.GetComponent<CharacterMovement>().enabled = false;
             OpenMenu();
         }    
         

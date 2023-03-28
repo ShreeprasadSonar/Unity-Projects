@@ -95,7 +95,6 @@ public class InventoryManager : MonoBehaviour
         }
         Remove(item);
         InventoryPanel.SetActive(false);
-        // ;
     }
 
     public void SetInventoryItems(){

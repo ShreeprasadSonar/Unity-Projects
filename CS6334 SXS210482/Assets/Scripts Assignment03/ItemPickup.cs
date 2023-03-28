@@ -6,10 +6,17 @@ public class ItemPickup : MonoBehaviour
 {
     public Item item;
     public GameObject inventoryFullText;
+    private GameObject player;
+
+    void Start()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
     
 
     public void Pickup(GameObject pickObj){
         print("In pickup");
+        player.GetComponent<CharacterMovement>().enabled = true;
         if (InventoryManager.instance.Add(item)){
             // print("Pick Object: " + pickObj.name);
             InventoryManager.instance.objects.Add(pickObj);
@@ -21,7 +28,7 @@ public class ItemPickup : MonoBehaviour
     }
 
     IEnumerator DisableText(){
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         inventoryFullText.SetActive(false);
     }
 }
